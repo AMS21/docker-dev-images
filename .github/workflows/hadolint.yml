@@ -28,7 +28,6 @@ jobs:
     strategy:
       matrix:
         image:
-          - { name: "dev-ubuntu:latest", path: "Ubuntu/22.04" }
           - { name: "dev-ubuntu:22.04",  path: "Ubuntu/22.04" }
 
     steps:

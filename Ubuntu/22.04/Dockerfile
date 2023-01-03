@@ -4,13 +4,12 @@ FROM ubuntu:22.04
 RUN apt-get update && apt-get upgrade -y
 
 # Install basic utilities
-RUN apt-get install build-essential git wget sudo grep perl ruby software-properties-common gpg tar curl zip unzip valgrind \
-    python2 \
+RUN apt-get install build-essential git wget sudo grep software-properties-common gpg tar curl zip unzip fzf \
     python3 python-is-python3 python3-pip python3-wheel \
-    -y
+    --no-install-recommends -y
 
 # Add llvm key
-RUN wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key | gpg --dearmour -o /usr/share/keyrings/llvm.gpg
+RUN wget --progress=dot:giga -O - https://apt.llvm.org/llvm-snapshot.gpg.key | gpg --dearmour -o /usr/share/keyrings/llvm.gpg
 
 # Add llvm apt repositories
 RUN echo "deb [signed-by=/usr/share/keyrings/llvm.gpg] https://apt.llvm.org/jammy/ llvm-toolchain-jammy main" >> "/etc/apt/sources.list.d/llvm.list"
@@ -34,17 +33,17 @@ RUN apt-get install ninja-build \
     clang-tools clang-tools-15 \
     libc++1 \
     libc++abi1 \
-    cmake cppcheck iwyu \
-    -y
+    cmake cppcheck iwyu ccache gdb \
+    --no-install-recommends -y
 
 # Install python packages
-RUN pip3 install gcovr cmakelang pyyaml
+RUN pip3 --no-cache-dir install gcovr cmakelang pyyaml
 
 # Install vcpkg
 RUN git clone https://github.com/microsoft/vcpkg /opt/vcpkg
 
 # Bootstrap vcpkg
-RUN /opt/vcpkg/bootstrap-vcpkg.sh
+RUN /opt/vcpkg/bootstrap-vcpkg.sh -disableMetrics
 RUN /opt/vcpkg/vcpkg integrate bash
 
 # Cleanup
