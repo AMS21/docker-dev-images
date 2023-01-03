@@ -8,6 +8,9 @@ RUN apt-get install build-essential git wget sudo grep software-properties-commo
     python3 python-is-python3 python3-pip python3-wheel \
     --no-install-recommends -y
 
+# Add Ubuntu test ppa
+RUN add-apt-repository ppa:ubuntu-toolchain-r/test -y -n
+
 # Add llvm key
 RUN wget --progress=dot:giga -O - https://apt.llvm.org/llvm-snapshot.gpg.key | gpg --dearmour -o /usr/share/keyrings/llvm.gpg
 
