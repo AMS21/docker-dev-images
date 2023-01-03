@@ -13,6 +13,7 @@ jobs:
       matrix:
         image:
           - { name: "dev-ubuntu:22.04",  path: "Ubuntu/22.04", platforms: "linux/amd64" }
+          - { name: "dev-ubuntu:20.04",  path: "Ubuntu/20.04", platforms: "linux/amd64" }
 
     steps:
       - name: Check out the repo

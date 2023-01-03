@@ -26,6 +26,7 @@ jobs:
       matrix:
         image:
           - { name: "dev-ubuntu:22.04",  path: "Ubuntu/22.04" }
+          - { name: "dev-ubuntu:20.04",  path: "Ubuntu/20.04" }
 
     steps:
       - name: Checkout code
