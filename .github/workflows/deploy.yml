@@ -10,7 +10,7 @@ on:
       # Workflow file itself
       - '.github/workflows/deploy.yml'
       # Dockerfile
-      - 'Dockerfile'
+      - '**/Dockerfile'
   workflow_dispatch:
 
 permissions:
