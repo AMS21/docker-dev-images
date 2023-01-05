@@ -35,6 +35,9 @@ jobs:
           # Ubuntu 18.04/Bionic
           - { name: "dev-ubuntu:bionic", path: "Ubuntu/18.04", platforms: "linux/amd64" }
           - { name: "dev-ubuntu:18.04",  path: "Ubuntu/18.04", platforms: "linux/amd64" }
+          # Ubuntu 16.04/Xenial
+          - { name: "dev-ubuntu:xenial", path: "Ubuntu/16.04", platforms: "linux/amd64" }
+          - { name: "dev-ubuntu:16.04",  path: "Ubuntu/16.04", platforms: "linux/amd64" }
 
     steps:
       - name: Check out the repo
