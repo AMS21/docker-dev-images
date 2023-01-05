@@ -4,9 +4,8 @@ FROM ubuntu:22.04
 RUN apt-get update && apt-get upgrade -y
 
 # Install basic utilities
-RUN apt-get install build-essential git wget sudo grep software-properties-common gpg gnupg gpg-agent tar curl zip unzip fzf \
-    python3 python-is-python3 python3-pip python3-wheel \
-    --no-install-recommends -y
+RUN apt-get install build-essential git wget sudo grep software-properties-common gpg gnupg gpg-agent tar curl zip unzip fzf --no-install-recommends -y
+RUN apt-get install python3 python-is-python3 python3-pip python3-wheel --no-install-recommends -y
 
 # Add Ubuntu test ppa
 RUN add-apt-repository ppa:ubuntu-toolchain-r/test -y -n
@@ -24,20 +23,18 @@ RUN echo "deb [signed-by=/usr/share/keyrings/llvm.gpg] https://apt.llvm.org/jamm
 RUN apt-get update
 
 # Install C++ packages
-RUN apt-get install ninja-build \
-    gcc gcc-12 gcc-11 gcc-10 gcc-9 \
-    gcc-multilib gcc-12-multilib gcc-11-multilib gcc-10-multilib gcc-9-multilib \
-    g++ g++-12 g++-11 g++-10 g++-9 \
-    g++-multilib g++-12-multilib g++-11-multilib g++-10-multilib g++-9-multilib \
-    clang clang-15 clang-14 clang-13 clang-12 clang-11 \
-    lld lld-15 lld-14 lld-13 lld-12 lld-11 \
-    clang-tidy clang-tidy-15 \
-    clang-format clang-format-15 \
-    clang-tools clang-tools-15 \
-    libc++1 \
-    libc++abi1 \
-    cmake cppcheck iwyu ccache gdb \
-    --no-install-recommends -y
+RUN apt-get install gcc gcc-12 gcc-11 gcc-10 gcc-9 --no-install-recommends -y
+RUN apt-get install gcc-multilib gcc-12-multilib gcc-11-multilib gcc-10-multilib gcc-9-multilib --no-install-recommends -y
+RUN apt-get install g++ g++-12 g++-11 g++-10 g++-9 --no-install-recommends -y
+RUN apt-get install g++-multilib g++-12-multilib g++-11-multilib g++-10-multilib g++-9-multilib --no-install-recommends -y
+RUN apt-get install clang clang-15 clang-14 clang-13 clang-12 clang-11 --no-install-recommends -y
+RUN apt-get install lld lld-15 lld-14 lld-13 lld-12 lld-11 --no-install-recommends -y
+RUN apt-get install clang-tidy clang-tidy-15 --no-install-recommends -y
+RUN apt-get install clang-format clang-format-15 --no-install-recommends -y
+RUN apt-get install clang-tools clang-tools-15 --no-install-recommends -y
+RUN apt-get install libc++1 --no-install-recommends -y
+RUN apt-get install libc++abi1 --no-install-recommends -y
+RUN apt-get install cmake cppcheck iwyu ccache gdb ninja-build --no-install-recommends -y
 
 # Install python packages
 RUN pip3 --no-cache-dir install gcovr cmakelang pyyaml

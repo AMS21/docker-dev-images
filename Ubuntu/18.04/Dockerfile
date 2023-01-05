@@ -4,9 +4,8 @@ FROM ubuntu:18.04
 RUN apt-get update && apt-get upgrade -y
 
 # Install basic utilities
-RUN apt-get install build-essential git wget sudo grep software-properties-common gpg gnupg gpg-agent tar curl zip unzip \
-    python3 python3-pip python3-wheel \
-    --no-install-recommends -y
+RUN apt-get install build-essential git wget sudo grep software-properties-common gpg gnupg gpg-agent tar curl zip unzip --no-install-recommends -y
+RUN apt-get install python3 python3-pip python3-wheel --no-install-recommends -y
 
 # Add Ubuntu test ppa
 RUN add-apt-repository ppa:ubuntu-toolchain-r/test -y -n
@@ -32,20 +31,18 @@ RUN echo "deb [signed-by=/usr/share/keyrings/llvm.gpg] https://apt.llvm.org/bion
 RUN apt-get update
 
 # Install C++ packages
-RUN apt-get install ninja-build \
-    gcc gcc-11 gcc-10 gcc-9 gcc-8 gcc-7 gcc-6 gcc-5 \
-    gcc-multilib gcc-11-multilib gcc-10-multilib gcc-9-multilib gcc-8-multilib gcc-7-multilib gcc-6-multilib gcc-5-multilib \
-    g++ g++-11 g++-10 g++-9 g++-8 g++-7 g++-6 g++-5 \
-    g++-multilib g++-11-multilib g++-10-multilib g++-9-multilib g++-8-multilib g++-7-multilib g++-6-multilib g++-5-multilib \
-    clang clang-15 clang-14 clang-13 clang-12 clang-11 clang-10 clang-9 clang-8 clang-7 clang-6.0 clang-5.0 \
-    lld lld-15 lld-14 lld-13 lld-12 lld-11 lld-10 lld-9 lld-8 lld-7 lld-6.0 lld-5.0 \
-    clang-tidy clang-tidy-15 \
-    clang-format clang-format-15 \
-    clang-tools clang-tools-15 \
-    libc++1 \
-    libc++abi1 \
-    cmake cppcheck iwyu ccache gdb \
-    --no-install-recommends -y
+RUN apt-get install gcc gcc-11 gcc-10 gcc-9 gcc-8 gcc-7 gcc-6 gcc-5 --no-install-recommends -y
+RUN apt-get install gcc-multilib gcc-11-multilib gcc-10-multilib gcc-9-multilib gcc-8-multilib gcc-7-multilib gcc-6-multilib gcc-5-multilib --no-install-recommends -y
+RUN apt-get install g++ g++-11 g++-10 g++-9 g++-8 g++-7 g++-6 g++-5 --no-install-recommends -y
+RUN apt-get install g++-multilib g++-11-multilib g++-10-multilib g++-9-multilib g++-8-multilib g++-7-multilib g++-6-multilib g++-5-multilib --no-install-recommends -y
+RUN apt-get install clang clang-15 clang-14 clang-13 clang-12 clang-11 clang-10 clang-9 clang-8 clang-7 clang-6.0 clang-5.0 --no-install-recommends -y
+RUN apt-get install lld lld-15 lld-14 lld-13 lld-12 lld-11 lld-10 lld-9 lld-8 lld-7 lld-6.0 lld-5.0 --no-install-recommends -y
+RUN apt-get install clang-tidy clang-tidy-15 --no-install-recommends -y
+RUN apt-get install clang-format clang-format-15 --no-install-recommends -y
+RUN apt-get install clang-tools clang-tools-15 --no-install-recommends -y
+RUN apt-get install libc++1 --no-install-recommends -y
+RUN apt-get install libc++abi1 --no-install-recommends -y
+RUN apt-get install cmake cppcheck iwyu ccache gdb ninja-build --no-install-recommends -y
 
 # Install python packages
 RUN pip3 --no-cache-dir install gcovr cmakelang pyyaml
