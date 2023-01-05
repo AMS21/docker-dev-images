@@ -51,5 +51,8 @@ RUN git clone https://github.com/microsoft/vcpkg /opt/vcpkg
 RUN /opt/vcpkg/bootstrap-vcpkg.sh -disableMetrics
 RUN /opt/vcpkg/vcpkg integrate bash
 
+# Update apt
+RUN apt-get update && apt-get upgrade -y
+
 # Cleanup
 RUN apt-get autoremove -y && apt-get clean
