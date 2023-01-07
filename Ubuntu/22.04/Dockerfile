@@ -4,7 +4,7 @@ FROM ubuntu:22.04
 RUN apt-get update && apt-get upgrade -y
 
 # Install basic utilities
-RUN apt-get install build-essential git wget sudo grep software-properties-common gpg gnupg gpg-agent tar curl zip unzip fzf --no-install-recommends -y
+RUN apt-get install build-essential git wget sudo grep software-properties-common gpg gnupg gpg-agent tar curl zip unzip nano vim fzf --no-install-recommends -y
 RUN apt-get install python3 python-is-python3 python3-pip python3-wheel --no-install-recommends -y
 
 # Add Ubuntu test ppa

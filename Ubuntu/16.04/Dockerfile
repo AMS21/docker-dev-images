@@ -4,7 +4,7 @@ FROM ubuntu:16.04
 RUN apt-get update && apt-get upgrade -y
 
 # Install basic utilities
-RUN apt-get install build-essential git wget sudo grep software-properties-common apt-transport-https ca-certificates gnupg tar curl zip unzip --no-install-recommends -y
+RUN apt-get install build-essential git wget sudo grep software-properties-common apt-transport-https ca-certificates gnupg tar curl zip nano vim unzip --no-install-recommends -y
 RUN apt-get install python3 python3-pip python3-wheel --no-install-recommends -y
 
 # Add Ubuntu test ppa
