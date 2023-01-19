@@ -42,7 +42,7 @@ RUN apt-get install clang-format clang-format-15 --no-install-recommends -y
 RUN apt-get install clang-tools clang-tools-15 --no-install-recommends -y
 RUN apt-get install libc++1 --no-install-recommends -y
 RUN apt-get install libc++abi1 --no-install-recommends -y
-RUN apt-get install cmake cppcheck iwyu ccache gdb ninja-build --no-install-recommends -y
+RUN apt-get install cmake cmake-curses-gui cppcheck iwyu ccache gdb ninja-build --no-install-recommends -y
 
 # Install python packages
 RUN pip3 --no-cache-dir install gcovr cmakelang pyyaml

@@ -41,7 +41,7 @@ RUN apt-get install clang-tidy clang-tidy-12 --no-install-recommends -y
 RUN apt-get install clang-format clang-format-12 --no-install-recommends -y
 RUN apt-get install libc++1 --no-install-recommends -y
 RUN apt-get install libc++abi1 --no-install-recommends -y
-RUN apt-get install cmake cppcheck iwyu ccache gdb ninja-build --no-install-recommends -y
+RUN apt-get install cmake cmake-curses-gui cppcheck iwyu ccache gdb ninja-build --no-install-recommends -y
 
 # Install vcpkg
 RUN git clone https://github.com/microsoft/vcpkg /opt/vcpkg
