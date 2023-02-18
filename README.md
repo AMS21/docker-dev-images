@@ -1,4 +1,4 @@
-# docker-dev-images
+# docker development images
 
 Very simple docker images used for development of software
 
@@ -10,7 +10,7 @@ To build simply run:
 docker build -t "ams21/dev-ubuntu:22.04" Ubuntu/22.04
 ```
 
-After that can open a shell by simply using
+After that you can open a shell by simply using
 
 ```sh
 docker run -it "ams21/dev-ubuntu:22.04" /bin/bash
