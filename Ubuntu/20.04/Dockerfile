@@ -34,6 +34,7 @@ RUN apt-get install g++ g++-11 g++-10 g++-9 g++-8 g++-7 --no-install-recommends 
 RUN apt-get install g++-multilib g++-11-multilib g++-10-multilib g++-9-multilib g++-8-multilib g++-7-multilib --no-install-recommends -y
 RUN apt-get install clang clang-15 clang-14 clang-13 clang-12 clang-11 clang-10 clang-9 clang-8 clang-7 --no-install-recommends -y
 RUN apt-get install lld lld-15 lld-14 lld-13 lld-12 lld-11 lld-10 lld-9 lld-8 lld-7 --no-install-recommends -y
+RUN apt-get install libclang-rt-*-dev --no-install-recommends -y
 RUN apt-get install clang-tidy clang-tidy-15 --no-install-recommends -y
 RUN apt-get install clang-format clang-format-15 --no-install-recommends -y
 RUN apt-get install clang-tools clang-tools-15 --no-install-recommends -y
