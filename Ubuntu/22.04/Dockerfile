@@ -14,10 +14,11 @@ RUN add-apt-repository ppa:ubuntu-toolchain-r/test -y -n
 RUN wget --progress=dot:giga -O - https://apt.llvm.org/llvm-snapshot.gpg.key | gpg --dearmour -o /usr/share/keyrings/llvm.gpg
 
 # Add llvm apt repositories
-RUN echo "deb [signed-by=/usr/share/keyrings/llvm.gpg] https://apt.llvm.org/jammy/ llvm-toolchain-jammy main" >> "/etc/apt/sources.list.d/llvm.list"
-RUN echo "deb [signed-by=/usr/share/keyrings/llvm.gpg] https://apt.llvm.org/jammy/ llvm-toolchain-jammy-15 main" >> "/etc/apt/sources.list.d/llvm-15.list"
-RUN echo "deb [signed-by=/usr/share/keyrings/llvm.gpg] https://apt.llvm.org/jammy/ llvm-toolchain-jammy-14 main" >> "/etc/apt/sources.list.d/llvm-14.list"
-RUN echo "deb [signed-by=/usr/share/keyrings/llvm.gpg] https://apt.llvm.org/jammy/ llvm-toolchain-jammy-13 main" >> "/etc/apt/sources.list.d/llvm-13.list"
+RUN echo "deb [signed-by=/usr/share/keyrings/llvm.gpg] https://apt.llvm.org/jammy/ llvm-toolchain-jammy main" >>"/etc/apt/sources.list.d/llvm.list"
+RUN echo "deb [signed-by=/usr/share/keyrings/llvm.gpg] https://apt.llvm.org/jammy/ llvm-toolchain-jammy-16 main" >>"/etc/apt/sources.list.d/llvm-16.list"
+RUN echo "deb [signed-by=/usr/share/keyrings/llvm.gpg] https://apt.llvm.org/jammy/ llvm-toolchain-jammy-15 main" >>"/etc/apt/sources.list.d/llvm-15.list"
+RUN echo "deb [signed-by=/usr/share/keyrings/llvm.gpg] https://apt.llvm.org/jammy/ llvm-toolchain-jammy-14 main" >>"/etc/apt/sources.list.d/llvm-14.list"
+RUN echo "deb [signed-by=/usr/share/keyrings/llvm.gpg] https://apt.llvm.org/jammy/ llvm-toolchain-jammy-13 main" >>"/etc/apt/sources.list.d/llvm-13.list"
 
 # Update apt with new llvm packages
 RUN apt-get update
@@ -27,13 +28,13 @@ RUN apt-get install gcc gcc-12 gcc-11 gcc-10 gcc-9 --no-install-recommends -y
 RUN apt-get install gcc-multilib gcc-12-multilib gcc-11-multilib gcc-10-multilib gcc-9-multilib --no-install-recommends -y
 RUN apt-get install g++ g++-12 g++-11 g++-10 g++-9 --no-install-recommends -y
 RUN apt-get install g++-multilib g++-12-multilib g++-11-multilib g++-10-multilib g++-9-multilib --no-install-recommends -y
-RUN apt-get install clang clang-15 clang-14 clang-13 clang-12 clang-11 --no-install-recommends -y
-RUN apt-get install lld lld-15 lld-14 lld-13 lld-12 lld-11 --no-install-recommends -y
+RUN apt-get install clang clang-16 clang-15 clang-14 clang-13 clang-12 clang-11 --no-install-recommends -y
+RUN apt-get install lld lld-16 lld-15 lld-14 lld-13 lld-12 lld-11 --no-install-recommends -y
 RUN apt-get install libclang-rt-*-dev --no-install-recommends -y
 RUN apt-get install llvm-runtime llvm-*-runtime --no-install-recommends -y
-RUN apt-get install clang-tidy clang-tidy-15 --no-install-recommends -y
-RUN apt-get install clang-format clang-format-15 --no-install-recommends -y
-RUN apt-get install clang-tools clang-tools-15 --no-install-recommends -y
+RUN apt-get install clang-tidy clang-tidy-16 --no-install-recommends -y
+RUN apt-get install clang-format clang-format-16 --no-install-recommends -y
+RUN apt-get install clang-tools clang-tools-16 --no-install-recommends -y
 RUN apt-get install libc++1 --no-install-recommends -y
 RUN apt-get install libc++abi1 --no-install-recommends -y
 RUN apt-get install cmake cmake-curses-gui cppcheck iwyu ccache gdb ninja-build --no-install-recommends -y
