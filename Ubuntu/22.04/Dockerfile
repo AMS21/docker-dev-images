@@ -24,10 +24,10 @@ RUN echo "deb [signed-by=/usr/share/keyrings/llvm.gpg] https://apt.llvm.org/jamm
 RUN apt-get update
 
 # Install C++ packages
-RUN apt-get install gcc gcc-12 gcc-11 gcc-10 gcc-9 --no-install-recommends -y
-RUN apt-get install gcc-multilib gcc-12-multilib gcc-11-multilib gcc-10-multilib gcc-9-multilib --no-install-recommends -y
-RUN apt-get install g++ g++-12 g++-11 g++-10 g++-9 --no-install-recommends -y
-RUN apt-get install g++-multilib g++-12-multilib g++-11-multilib g++-10-multilib g++-9-multilib --no-install-recommends -y
+RUN apt-get install gcc gcc-13 gcc-12 gcc-11 gcc-10 gcc-9 --no-install-recommends -y
+RUN apt-get install gcc-multilib gcc-13-multilib gcc-12-multilib gcc-11-multilib gcc-10-multilib gcc-9-multilib --no-install-recommends -y
+RUN apt-get install g++ g++-13 g++-12 g++-11 g++-10 g++-9 --no-install-recommends -y
+RUN apt-get install g++-multilib g++-13-multilib g++-12-multilib g++-11-multilib g++-10-multilib g++-9-multilib --no-install-recommends -y
 RUN apt-get install clang clang-16 clang-15 clang-14 clang-13 clang-12 clang-11 --no-install-recommends -y
 RUN apt-get install lld lld-16 lld-15 lld-14 lld-13 lld-12 lld-11 --no-install-recommends -y
 RUN apt-get install libclang-rt-*-dev --no-install-recommends -y
