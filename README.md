@@ -16,4 +16,10 @@ After that, you can open a shell by simply using
 docker run -it "ams21/dev-ubuntu:22.04" /bin/bash
 ```
 
+Most likely you want to run the container inside your project folder. For that, you can use something like this:
+
+```sh
+docker run -v "$PWD":"$PWD" -w "$PWD" -it "ams21/dev-ubuntu:22.04" /bin/bash
+```
+
 If you want to run a different container than `ubuntu:22.04` you just need to replace the name and path.
