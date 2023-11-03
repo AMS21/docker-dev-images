@@ -35,8 +35,8 @@ RUN apt-get install gcc gcc-9 gcc-8 gcc-7 gcc-6 gcc-5 gcc-4.9 gcc-4.8 gcc-4.7 --
 RUN apt-get install gcc-multilib gcc-9-multilib gcc-8-multilib gcc-7-multilib gcc-6-multilib gcc-5-multilib gcc-4.9-multilib gcc-4.8-multilib gcc-4.7-multilib --no-install-recommends -y
 RUN apt-get install g++ g++-9 g++-8 g++-7 g++-6 g++-5 g++-4.9 g++-4.8 g++-4.7 --no-install-recommends -y
 RUN apt-get install g++-multilib g++-9-multilib g++-8-multilib g++-7-multilib g++-6-multilib g++-5-multilib g++-4.9-multilib g++-4.8-multilib g++-4.7-multilib --no-install-recommends -y
-RUN apt-get install clang clang-12 clang-11 clang-10 clang-9 clang-8 clang-7 clang-6.0 clang-5.0 clang-4.0 clang-3.9 clang-3.8 --no-install-recommends -y
-RUN apt-get install lld lld-12 lld-11 lld-10 lld-9 lld-8 lld-7 lld-6.0 lld-5.0 lld-4.0 --no-install-recommends -y
+RUN apt-get install clang clang-* --no-install-recommends -y
+RUN apt-get install lld lld-* --no-install-recommends -y
 RUN apt-get install clang-tidy clang-tidy-12 --no-install-recommends -y
 RUN apt-get install clang-format clang-format-12 --no-install-recommends -y
 RUN apt-get install libc++1 --no-install-recommends -y
