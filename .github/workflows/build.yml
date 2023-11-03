@@ -12,6 +12,9 @@ jobs:
     strategy:
       matrix:
         image:
+          # Alpine
+          - { name: "dev-alpine:latest", path: "Alpine/latest", platforms: "linux/amd64" }
+          # Ubuntu
           - { name: "dev-ubuntu:22.04",  path: "Ubuntu/22.04", platforms: "linux/amd64" }
           - { name: "dev-ubuntu:20.04",  path: "Ubuntu/20.04", platforms: "linux/amd64" }
           - { name: "dev-ubuntu:18.04",  path: "Ubuntu/18.04", platforms: "linux/amd64" }

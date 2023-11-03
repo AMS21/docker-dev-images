@@ -1,0 +1,47 @@
+FROM alpine:latest
+
+RUN apk update
+
+RUN apk add --no-cache \
+    bash \
+    build-base \
+    ccache \
+    clang14 \
+    clang15 \
+    clang16 \
+    clang16-extra-tools \
+    cmake \
+    curl \
+    gcc \
+    gdb \
+    git \
+    gnupg \
+    g++ \
+    grep \
+    include-what-you-use \
+    libc-dev \
+    lld \
+    lldb \
+    llvm-runtimes \
+    llvm14 \
+    llvm15 \
+    llvm16 \
+    make \
+    nano \
+    ninja \
+    python3 \
+    python3-dev \
+    sudo \
+    tar \
+    unzip \
+    vim \
+    wget \
+    zip
+
+# Install vcpkg
+RUN git clone https://github.com/microsoft/vcpkg /opt/vcpkg
+
+# Bootstrap vcpkg
+RUN touch /root/.bashrc
+RUN /opt/vcpkg/bootstrap-vcpkg.sh -disableMetrics
+RUN /opt/vcpkg/vcpkg integrate bash
