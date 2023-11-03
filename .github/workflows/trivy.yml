@@ -25,6 +25,7 @@ jobs:
     strategy:
       matrix:
         image:
+          - { name: "dev-alpine:latest", path: "Alpine/latest" }
           - { name: "dev-ubuntu:22.04",  path: "Ubuntu/22.04" }
           - { name: "dev-ubuntu:20.04",  path: "Ubuntu/20.04" }
           - { name: "dev-ubuntu:18.04",  path: "Ubuntu/18.04" }
