@@ -43,7 +43,7 @@ jobs:
       run: docker build ${{ matrix.image.path }} --tag ams21/${{ matrix.image.name }}
 
     - name: Scan the image and upload dependency results
-      uses: anchore/sbom-action@v0.15.1
+      uses: anchore/sbom-action@v0.15.2
       with:
         image: "ams21/${{ matrix.image.name }}"
         artifact-name: image.spdx.json
