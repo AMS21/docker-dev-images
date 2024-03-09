@@ -15,6 +15,7 @@ RUN wget --progress=dot:giga -O - https://apt.llvm.org/llvm-snapshot.gpg.key | g
 
 # Add llvm apt repositories
 RUN echo "deb [signed-by=/usr/share/keyrings/llvm.gpg] https://apt.llvm.org/bionic/ llvm-toolchain-bionic main" >>"/etc/apt/sources.list.d/llvm.list"
+RUN echo "deb [signed-by=/usr/share/keyrings/llvm.gpg] https://apt.llvm.org/bionic/ llvm-toolchain-bionic-18 main" >>"/etc/apt/sources.list.d/llvm-18.list"
 RUN echo "deb [signed-by=/usr/share/keyrings/llvm.gpg] https://apt.llvm.org/bionic/ llvm-toolchain-bionic-17 main" >>"/etc/apt/sources.list.d/llvm-17.list"
 RUN echo "deb [signed-by=/usr/share/keyrings/llvm.gpg] https://apt.llvm.org/bionic/ llvm-toolchain-bionic-16 main" >>"/etc/apt/sources.list.d/llvm-16.list"
 RUN echo "deb [signed-by=/usr/share/keyrings/llvm.gpg] https://apt.llvm.org/bionic/ llvm-toolchain-bionic-15 main" >>"/etc/apt/sources.list.d/llvm-15.list"
@@ -41,14 +42,16 @@ RUN apt-get install clang clang-* --no-install-recommends -y
 RUN apt-get install lld lld-* --no-install-recommends -y
 RUN apt-get install libclang-rt-*-dev --no-install-recommends -y
 RUN apt-get install llvm-runtime llvm-*-runtime --no-install-recommends -y
-RUN apt-get install clang-tidy clang-tidy-17 --no-install-recommends -y
-RUN apt-get install clang-format clang-format-17 --no-install-recommends -y
-RUN apt-get install clang-tools clang-tools-17 --no-install-recommends -y
+RUN apt-get install clang-tidy clang-tidy-18 --no-install-recommends -y
+RUN apt-get install clang-format clang-format-18 --no-install-recommends -y
+RUN apt-get install clang-tools clang-tools-18 --no-install-recommends -y
 RUN apt-get install libc++1 --no-install-recommends -y
 RUN apt-get install libc++abi1 --no-install-recommends -y
 RUN apt-get install cmake cmake-curses-gui cppcheck iwyu ccache gdb ninja-build --no-install-recommends -y
 
 # Install python packages
+RUN pip3 --no-cache-dir install setuptools
+RUN apt-get install libxml2 libxslt-dev python3-dev --no-install-recommends -y
 RUN pip3 --no-cache-dir install gcovr cmakelang pyyaml
 
 # Install vcpkg

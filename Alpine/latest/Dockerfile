@@ -9,7 +9,8 @@ RUN apk add --no-cache \
     clang14 \
     clang15 \
     clang16 \
-    clang16-extra-tools \
+    clang17 \
+    clang17-extra-tools \
     cmake \
     curl \
     gcc \
@@ -26,6 +27,7 @@ RUN apk add --no-cache \
     llvm14 \
     llvm15 \
     llvm16 \
+    llvm17 \
     make \
     nano \
     ninja \

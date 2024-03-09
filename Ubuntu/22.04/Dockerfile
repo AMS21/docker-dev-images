@@ -15,6 +15,7 @@ RUN wget --progress=dot:giga -O - https://apt.llvm.org/llvm-snapshot.gpg.key | g
 
 # Add llvm apt repositories
 RUN echo "deb [signed-by=/usr/share/keyrings/llvm.gpg] https://apt.llvm.org/jammy/ llvm-toolchain-jammy main" >>"/etc/apt/sources.list.d/llvm.list"
+RUN echo "deb [signed-by=/usr/share/keyrings/llvm.gpg] https://apt.llvm.org/jammy/ llvm-toolchain-jammy-18 main" >>"/etc/apt/sources.list.d/llvm-18.list"
 RUN echo "deb [signed-by=/usr/share/keyrings/llvm.gpg] https://apt.llvm.org/jammy/ llvm-toolchain-jammy-17 main" >>"/etc/apt/sources.list.d/llvm-17.list"
 RUN echo "deb [signed-by=/usr/share/keyrings/llvm.gpg] https://apt.llvm.org/jammy/ llvm-toolchain-jammy-16 main" >>"/etc/apt/sources.list.d/llvm-16.list"
 RUN echo "deb [signed-by=/usr/share/keyrings/llvm.gpg] https://apt.llvm.org/jammy/ llvm-toolchain-jammy-15 main" >>"/etc/apt/sources.list.d/llvm-15.list"
@@ -31,11 +32,11 @@ RUN apt-get install g++ g++-13 g++-12 g++-11 g++-10 g++-9 --no-install-recommend
 RUN apt-get install g++-multilib g++-13-multilib g++-12-multilib g++-11-multilib g++-10-multilib g++-9-multilib --no-install-recommends -y
 RUN apt-get install clang clang-* --no-install-recommends -y
 RUN apt-get install lld lld-* --no-install-recommends -y
-RUN apt-get install libclang-rt-18-dev libclang-rt-17-dev libclang-rt-16-dev libclang-rt-14-dev --no-install-recommends -y
+RUN apt-get install libclang-rt-19-dev libclang-rt-18-dev libclang-rt-17-dev libclang-rt-16-dev libclang-rt-14-dev --no-install-recommends -y
 RUN apt-get install llvm-runtime llvm-*-runtime --no-install-recommends -y
-RUN apt-get install clang-tidy clang-tidy-17 --no-install-recommends -y
-RUN apt-get install clang-format clang-format-17 --no-install-recommends -y
-RUN apt-get install clang-tools clang-tools-17 --no-install-recommends -y
+RUN apt-get install clang-tidy clang-tidy-18 --no-install-recommends -y
+RUN apt-get install clang-format clang-format-18 --no-install-recommends -y
+RUN apt-get install clang-tools clang-tools-18 --no-install-recommends -y
 RUN apt-get install libc++1 --no-install-recommends -y
 RUN apt-get install libc++abi1 --no-install-recommends -y
 RUN apt-get install cmake cmake-curses-gui cppcheck iwyu ccache gdb ninja-build --no-install-recommends -y
