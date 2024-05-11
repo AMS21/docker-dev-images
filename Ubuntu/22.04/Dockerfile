@@ -26,10 +26,10 @@ RUN echo "deb [signed-by=/usr/share/keyrings/llvm.gpg] https://apt.llvm.org/jamm
 RUN apt-get update
 
 # Install C++ packages
-RUN apt-get install gcc gcc-13 gcc-12 gcc-11 gcc-10 gcc-9 --no-install-recommends -y
-RUN apt-get install gcc-multilib gcc-13-multilib gcc-12-multilib gcc-11-multilib gcc-10-multilib gcc-9-multilib --no-install-recommends -y
-RUN apt-get install g++ g++-13 g++-12 g++-11 g++-10 g++-9 --no-install-recommends -y
-RUN apt-get install g++-multilib g++-13-multilib g++-12-multilib g++-11-multilib g++-10-multilib g++-9-multilib --no-install-recommends -y
+RUN apt-get install gcc gcc-14 gcc-13 gcc-12 gcc-11 gcc-10 gcc-9 --no-install-recommends -y
+RUN apt-get install gcc-multilib gcc-14-multilib gcc-13-multilib gcc-12-multilib gcc-11-multilib gcc-10-multilib gcc-9-multilib --no-install-recommends -y
+RUN apt-get install g++ g++-14 g++-13 g++-12 g++-11 g++-10 g++-9 --no-install-recommends -y
+RUN apt-get install g++-multilib g++-14-multilib g++-13-multilib g++-12-multilib g++-11-multilib g++-10-multilib g++-9-multilib --no-install-recommends -y
 RUN apt-get install clang clang-* --no-install-recommends -y
 RUN apt-get install lld lld-* --no-install-recommends -y
 RUN apt-get install libclang-rt-19-dev libclang-rt-18-dev libclang-rt-17-dev libclang-rt-16-dev libclang-rt-14-dev --no-install-recommends -y
