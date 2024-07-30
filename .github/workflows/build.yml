@@ -10,11 +10,14 @@ jobs:
     runs-on: ubuntu-latest
 
     strategy:
+      fail-fast: false
+
       matrix:
         image:
           # Alpine
           - { name: "dev-alpine:latest", path: "Alpine/latest", platforms: "linux/amd64" }
           # Ubuntu
+          - { name: "dev-ubuntu:24.04",  path: "Ubuntu/24.04", platforms: "linux/amd64" }
           - { name: "dev-ubuntu:22.04",  path: "Ubuntu/22.04", platforms: "linux/amd64" }
           - { name: "dev-ubuntu:20.04",  path: "Ubuntu/20.04", platforms: "linux/amd64" }
           - { name: "dev-ubuntu:18.04",  path: "Ubuntu/18.04", platforms: "linux/amd64" }
@@ -25,16 +28,18 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Docker Setup QEMU
-        uses: docker/setup-qemu-action@v3.2.0
+        uses: docker/setup-qemu-action@v3
 
       - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3.6.1
+        uses: docker/setup-buildx-action@v3
 
       - name: Build Docker image
-        uses: docker/build-push-action@v6.5.0
+        uses: docker/build-push-action@v6
         with:
           context: ${{ matrix.image.path }}
           push: false
           pull: true
           platforms: ${{ matrix.image.platforms }}
           tags: ams21/${{ matrix.image.name }}
+          cache-from: type=registry,ref=user/app:latest
+          cache-to: type=inline

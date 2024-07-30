@@ -6,11 +6,11 @@ RUN apk add --no-cache \
     bash \
     build-base \
     ccache \
-    clang14 \
     clang15 \
     clang16 \
     clang17 \
-    clang17-extra-tools \
+    clang18 \
+    clang18-extra-tools \
     cmake \
     curl \
     gcc \
@@ -24,10 +24,10 @@ RUN apk add --no-cache \
     lld \
     lldb \
     llvm-runtimes \
-    llvm14 \
     llvm15 \
     llvm16 \
     llvm17 \
+    llvm18 \
     make \
     nano \
     ninja \

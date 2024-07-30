@@ -16,6 +16,7 @@ RUN wget --progress=dot:giga -O - https://apt.llvm.org/llvm-snapshot.gpg.key | g
 
 # Add llvm apt repositories
 RUN echo "deb [signed-by=/usr/share/keyrings/llvm.gpg] https://apt.llvm.org/focal/ llvm-toolchain-focal main" >>"/etc/apt/sources.list.d/llvm.list"
+RUN echo "deb [signed-by=/usr/share/keyrings/llvm.gpg] https://apt.llvm.org/focal/ llvm-toolchain-focal-19 main" >>"/etc/apt/sources.list.d/llvm-19.list"
 RUN echo "deb [signed-by=/usr/share/keyrings/llvm.gpg] https://apt.llvm.org/focal/ llvm-toolchain-focal-18 main" >>"/etc/apt/sources.list.d/llvm-18.list"
 RUN echo "deb [signed-by=/usr/share/keyrings/llvm.gpg] https://apt.llvm.org/focal/ llvm-toolchain-focal-17 main" >>"/etc/apt/sources.list.d/llvm-17.list"
 RUN echo "deb [signed-by=/usr/share/keyrings/llvm.gpg] https://apt.llvm.org/focal/ llvm-toolchain-focal-16 main" >>"/etc/apt/sources.list.d/llvm-16.list"
